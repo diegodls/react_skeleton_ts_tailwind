@@ -28,9 +28,9 @@ export function App() {
 
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center bg-gray-100'>
-      <div className='w-[500px] h-[500px] flex flex-col items-center gap-2 p-2 rounded-lg overflow-y-auto overflow-x-hidden bg-gray-50 drop-shadow-2xl scrollbar-thumb-zinc-500 hover:scrollbar-thumb-zinc-600 scrollbar-track-transparent scrollbar-thin'>
+      <div className='w-[500px] h-[500px] p-2 rounded-lg overflow-y-auto overflow-x-hidden bg-gray-50 drop-shadow-2xl scrollbar-thumb-zinc-500 hover:scrollbar-thumb-zinc-600 scrollbar-track-transparent scrollbar-thin'>
         {personList && personList.length > 0 ? (
-          <ul className='w-full h-full'>
+          <ul className='w-full h-full flex flex-col items-center gap-2 '>
             {personList.map((person: RandomUserResult, index: number) => (
               <ListItem key={index} person={person} />
             ))}
