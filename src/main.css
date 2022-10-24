@@ -8,3 +8,7 @@
   box-sizing: border-box;
   font-family: "Rubik", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+
+body {
+  background-color: #fcfcfc;
+}
