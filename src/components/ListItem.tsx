@@ -6,7 +6,7 @@ interface ListItemProps {
 
 export function ListItem({ person }: ListItemProps) {
   return (
-    <div className='w-full h-24'>
+    <li className='w-full h-24'>
       <div className='w-full h-full flex flex-row items-center rounded-lg border border-gray-300 bg-gray-200 overflow-hidden'>
         <img
           src={person.picture.large}
@@ -20,6 +20,6 @@ export function ListItem({ person }: ListItemProps) {
           <p className='text-gray-600'>{person.email}</p>
         </div>
       </div>
-    </div>
+    </li>
   );
 }
