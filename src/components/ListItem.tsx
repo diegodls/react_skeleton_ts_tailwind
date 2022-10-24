@@ -7,7 +7,7 @@ interface ListItemProps {
 export function ListItem({ person }: ListItemProps) {
   return (
     <li className='w-full h-24'>
-      <div className='w-full h-full flex flex-row items-center rounded-lg border border-gray-300 bg-gray-200 overflow-hidden'>
+      <div className='w-full h-full flex flex-row items-center rounded-lg border border-gray-300 bg-gray-100 overflow-hidden'>
         <img
           src={person.picture.large}
           alt={`${person.name.first}' profile picture`}
