@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ListItem } from "./components/ListItem";
+import { List } from "./components/LIst";
+import { SkeletonList } from "./components/SkeletonList";
 import { RandomUserResponse, RandomUserResult } from "./utils/interfaces";
 export function App() {
   const [personList, setPersonList] = useState<RandomUserResult[]>([]);
@@ -18,25 +19,24 @@ export function App() {
   }
 
   useEffect(() => {
-    fetchData<RandomUserResponse>("https://randomuser.me/api/?results=50").then(
-      (data) => {
-        console.log(data.results);
+    fetchData<RandomUserResponse>(
+      "https://randomuser.me/api/?results=50&seed=githubdiegodls"
+    ).then((data) => {
+      console.log(data.results);
+
+      setTimeout(() => {
         setPersonList(data.results);
-      }
-    );
+      }, 3000);
+    });
   }, []);
 
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center bg-gray-100'>
-      <div className='w-[500px] h-[500px] p-2 rounded-lg overflow-y-auto overflow-x-hidden bg-gray-50 drop-shadow-2xl scrollbar-thumb-zinc-500 hover:scrollbar-thumb-zinc-600 scrollbar-track-transparent scrollbar-thin'>
+      <div className='w-[500px] h-[500px] rounded-lg bg-gray-50 drop-shadow-2xl'>
         {personList && personList.length > 0 ? (
-          <ul className='w-full h-full flex flex-col items-center gap-2 '>
-            {personList.map((person: RandomUserResult, index: number) => (
-              <ListItem key={index} person={person} />
-            ))}
-          </ul>
+          <SkeletonList />
         ) : (
-          <h1>Sem pessoas</h1>
+          <List personList={personList} />
         )}
       </div>
     </div>
