@@ -1,13 +1,14 @@
+import { memo } from "react";
 import { RandomUserResult } from "../utils/interfaces";
 
 interface ListItemProps {
   person: RandomUserResult;
 }
 
-export function ListItem({ person }: ListItemProps) {
+function ListItem({ person }: ListItemProps) {
   return (
-    <li className='w-full h-24'>
-      <div className='w-full h-full flex flex-row items-center rounded-lg border border-gray-300 bg-gray-100 overflow-hidden'>
+    <li className='w-full h-24 animate-fadeIn'>
+      <div className='w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 overflow-hidden hover:border-gray-300 hover:bg-gray-200  hover:drop-shadow-md transition-all'>
         <img
           src={person.picture.large}
           alt={`${person.name.first}' profile picture`}
@@ -23,3 +24,5 @@ export function ListItem({ person }: ListItemProps) {
     </li>
   );
 }
+
+export default memo(ListItem);
