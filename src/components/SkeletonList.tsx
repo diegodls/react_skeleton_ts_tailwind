@@ -8,7 +8,7 @@ export function SkeletonList() {
       {mockArray.map((_, index: number) => (
         <SkeletonListItem
           key={index}
-          index={index}
+          itemIndex={index}
           arrLength={mockArray.length}
         />
       ))}
