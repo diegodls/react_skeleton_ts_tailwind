@@ -70,6 +70,16 @@ export function App() {
           <SkeletonList />
         )}
       </div>
+      <button
+        className={`p-2 m-2 rounded ${
+          shownSkeleton && "bg-green-400 shadow-lg shadow-green-400"
+        } bg-red-500`}
+        onClick={() => {
+          setShownSkeleton(!shownSkeleton);
+        }}
+      >
+        Apenas Skeleton
+      </button>
     </div>
   );
 }
