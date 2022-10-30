@@ -44,8 +44,6 @@ export function App() {
     });
   }, []);
 
-  console.log("RENDERING - APP.TSX");
-
   return (
     <div className='w-screen h-screen flex flex-col items-center justify-center bg-gray-100 dark:bg-zinc-900'>
       <input
