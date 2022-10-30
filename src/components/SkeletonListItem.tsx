@@ -9,14 +9,14 @@ export function SkeletonListItem({
 }: SkeletonListItemProps) {
   function calcOpacity(index: number, length: number) {
     const minOpacity: number = 30;
-    const maxOpacity: number = 80;
+    const maxOpacity: number = 68;
 
     if (minOpacity >= maxOpacity) {
       return maxOpacity;
     }
 
-    const opacityInterval = (maxOpacity - minOpacity) / (length - 1);
-    const finalOpacity =
+    let opacityInterval = (maxOpacity - minOpacity) / (length - 1);
+    let finalOpacity =
       (minOpacity + opacityInterval * (length - 1 - index)) / 100; //remover o "length -1" para mudar a ordem
     return finalOpacity.toFixed(1);
   }
