@@ -60,9 +60,9 @@ export function App() {
       />
       <div className='w-3/4 h-[500px] min-w-[350px] mt-2 rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl overflow-hidden'>
         {personList && personList.length > 0 ? (
-          <SkeletonList />
-        ) : (
           <List personList={filteredPersonList} />
+        ) : (
+          <SkeletonList />
         )}
       </div>
     </div>
