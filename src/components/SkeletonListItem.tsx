@@ -22,12 +22,11 @@ export function SkeletonListItem({
   }
 
   return (
-    <li className='w-full h-24'>
+    <li
+      className={`w-full h-24 opacity-[${calcOpacity(itemIndex, arrLength)}]`}
+    >
       <div
-        className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden opacity-[${calcOpacity(
-          itemIndex,
-          arrLength
-        )}]`}
+        className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden `}
       >
         <div className='w-32 h-32 relative left-[-1.2rem] rounded-full bg-gray-300 animate-pulse' />
         <div className='flex flex-col gap-2 animate-pulse'>
