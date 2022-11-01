@@ -1,16 +1,20 @@
 export function calcOpacity(index: number, length: number): string {
-  const minOpacity: number = 10;
-  const maxOpacity: number = 60;
+  const minOpacity: number = 1;
+  const maxOpacity: number = 6;
+
+  let opacityInterval = (maxOpacity - minOpacity) / (length - 1);
+
+  let finalOpacity = maxOpacity - opacityInterval * index;
 
   if (minOpacity >= maxOpacity) {
-    return "opacity-[1]";
+    finalOpacity = maxOpacity;
   }
 
-  const opacityInterval = (maxOpacity - minOpacity) / (length - 1);
+  if (length <= 1) {
+    finalOpacity = maxOpacity;
+  }
 
-  const finalOpacity =
-    (minOpacity + opacityInterval * (length - 1 - index)) / 10; //remover o "length -1" para mudar a ordem
-  switch (finalOpacity.toFixed(0)) {
+  switch (Math.floor(finalOpacity).toFixed(0)) {
     case "10":
       return "opacity-[1]";
     case "9":
@@ -36,5 +40,4 @@ export function calcOpacity(index: number, length: number): string {
     default:
       return "opacity-[.0]";
   }
-  //return `opacity-[.${finalOpacity.toFixed(0)}]`;
 }
