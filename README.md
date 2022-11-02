@@ -34,6 +34,7 @@ Tal componente tem como função melhorar a usabilidade do usuário, mostrando q
 
 ## :sparkles: Testando o projeto
 Você pode testar o projeto **[clicando aqui](https://react-skeleton-ts-tailwind.vercel.app/)**.</br>
+Para testar o modo Dark, experimente alterar o modo de exibição do sistema: "Claro para Escuro || Escuro para Claro"
 
 ## :zap: Tecnologias</h2>
 <ul>
