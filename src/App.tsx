@@ -59,7 +59,7 @@ export function App() {
           setPersonSearch(event.target.value);
         }}
       />
-      <div className='w-3/4 h-[500px] min-w-[350px] mt-2 rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl overflow-hidden'>
+      <div className='w-3/4 min-w-[350px] h-[500px] mt-2 rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl relative overflow-auto'>
         {personList && personList.length > 0 ? (
           shownSkeleton ? (
             <SkeletonList />
@@ -71,15 +71,30 @@ export function App() {
         )}
       </div>
       <button
-        className={`p-2 m-2 rounded ${
-          shownSkeleton && "bg-green-400 shadow-lg shadow-green-400"
-        } bg-red-500`}
+        type='button'
+        className={`w-44 p-2 m-2 rounded font-bold shadow-md border transition-all ${
+          shownSkeleton
+            ? "bg-green-500 border-green-500 text-zinc-900 hover:bg-green-600"
+            : "bg-zinc-900 hover:bg-zinc-800 dark:border-green-500 dark:text-green-500 hover:dark:bg-green-900"
+        }
+        `}
         onClick={() => {
           setShownSkeleton(!shownSkeleton);
         }}
       >
-        Apenas Skeleton
+        Mostrar {shownSkeleton ? "Lista" : "Skeleton"}
       </button>
+      <footer className='w-full h-12 flex flex-col items-center justify-center relative bottom-0 bg-gray-100 dark:bg-zinc-700 dark:border-t-zinc-600'>
+        <p className='text-white'>
+          Projeto desenvolvido por{" "}
+          <a href='https://github.com/diegodls' target='_blank'>
+            <strong className='text-green-500 hover:text-green-300'>
+              Diego
+            </strong>
+          </a>
+        </p>
+        <p className='text-white'>Para fins de estudos 😉</p>
+      </footer>
     </div>
   );
 }

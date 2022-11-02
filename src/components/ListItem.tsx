@@ -7,11 +7,12 @@ interface ListItemProps {
 
 function ListItem({ person }: ListItemProps) {
   return (
-    <li className='w-full h-24 animate-fadeIn'>
-      <div className='w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 overflow-hidden hover:border-gray-300 hover:translate-y-[-2px]  hover:drop-shadow-md transition-all relative dark:bg-zinc-700 dark:border-zinc-600'>
+    <li className='w-full h-24 animate-fadeIn list-none transition-all hover:translate-y-[-2px] hover:drop-shadow-md'>
+      <div className='w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 overflow-hidden hover:border-gray-400 transition-all dark:bg-zinc-700 dark:border-zinc-600 cursor-pointer'>
         <img
           src={person.picture.large}
-          alt={`${person.name.first}' profile picture`}
+          alt={`${person.name.first} profile picture`}
+          title={`${person.name.first} profile picture`}
           className='w-32 h-32 relative left-[-1.2rem] rounded-full'
         />
         <div>

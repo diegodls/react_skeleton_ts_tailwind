@@ -1,3 +1,5 @@
+import { calcOpacity } from "../utils/functions/calcOpacity";
+
 interface SkeletonListItemProps {
   itemIndex: number;
   arrLength: number;
@@ -7,27 +9,12 @@ export function SkeletonListItem({
   itemIndex,
   arrLength,
 }: SkeletonListItemProps) {
-  function calcOpacity(index: number, length: number) {
-    const minOpacity: number = 30;
-    const maxOpacity: number = 68;
-
-    if (minOpacity >= maxOpacity) {
-      return maxOpacity;
-    }
-
-    let opacityInterval = (maxOpacity - minOpacity) / (length - 1);
-    let finalOpacity =
-      (minOpacity + opacityInterval * (length - 1 - index)) / 100; //remover o "length -1" para mudar a ordem
-    return finalOpacity.toFixed(1);
-  }
-
   return (
-    <li className='w-full h-24'>
+    <li
+      className={`w-full h-24 opacity-[${calcOpacity(itemIndex, arrLength)}]`}
+    >
       <div
-        className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden opacity-[${calcOpacity(
-          itemIndex,
-          arrLength
-        )}]`}
+        className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden `}
       >
         <div className='w-32 h-32 relative left-[-1.2rem] rounded-full bg-gray-300 animate-pulse' />
         <div className='flex flex-col gap-2 animate-pulse'>
