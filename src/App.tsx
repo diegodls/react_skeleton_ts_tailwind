@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { EmptyList } from "./components/EmptyList";
 import { List } from "./components/LIst";
 import { SkeletonList } from "./components/SkeletonList";
 import { RandomUserResponse, RandomUserResult } from "./utils/interfaces";
@@ -64,8 +65,10 @@ export function App() {
           {personList && personList.length > 0 ? (
             shownSkeleton ? (
               <SkeletonList />
-            ) : (
+            ) : personList.length > 0 && filteredPersonList.length > 0 ? (
               <List personList={filteredPersonList} />
+            ) : (
+              <EmptyList />
             )
           ) : (
             <SkeletonList />
