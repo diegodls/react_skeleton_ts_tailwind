@@ -10,9 +10,7 @@ export function SkeletonListItem({
   arrLength,
 }: SkeletonListItemProps) {
   return (
-    <li
-      className={`w-full h-24 opacity-[${calcOpacity(itemIndex, arrLength)}]`}
-    >
+    <li className={`w-full h-24 ${calcOpacity(itemIndex, arrLength)}`}>
       <div
         className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden `}
       >
