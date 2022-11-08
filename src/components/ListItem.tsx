@@ -13,13 +13,15 @@ function ListItem({ person }: ListItemProps) {
           src={person.picture.large}
           alt={`${person.name.first} profile picture`}
           title={`${person.name.first} profile picture`}
-          className='w-32 h-32 relative left-[-1.2rem] rounded-full'
+          className='w-28 h-28 md:w-32 md:h-32 relative left-[-1.4rem] md:left-[-1.2rem] rounded-full'
         />
         <div>
           <p className='text-gray-900 dark:text-gray-50'>
             {person.name.first} {person.name.last}
           </p>
-          <p className='text-gray-600 dark:text-gray-400'>{person.email}</p>
+          <p className='text-gray-600 text-xs md:text-base dark:text-gray-400'>
+            {person.email}
+          </p>
         </div>
       </div>
     </li>
