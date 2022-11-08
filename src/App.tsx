@@ -50,7 +50,7 @@ export function App() {
     <div className='w-screen h-screen flex flex-col items-center justify-center overflow-auto bg-gray-100 dark:bg-zinc-900'>
       <main className='w-full max-w-3xl h-full flex flex-1 flex-col gap-2 items-center justify-center'>
         <input
-          className='w-3/4 h-12  p-2 relative border rounded text-gray-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-gray-50 disabled:opacity-75'
+          className='w-3/4 h-12 p-2 relative border rounded text-gray-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-gray-50 disabled:opacity-75'
           placeholder='Localizar contato...'
           type='search'
           disabled={personList.length <= 0}
@@ -61,7 +61,7 @@ export function App() {
             setPersonSearch(event.target.value);
           }}
         />
-        <div className='w-3/4 h-[500px]  rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl relative overflow-auto'>
+        <div className='w-3/4 min-h-[450px] rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl relative overflow-auto'>
           {personList && personList.length > 0 ? (
             shownSkeleton ? (
               <SkeletonList />
@@ -89,7 +89,7 @@ export function App() {
           Mostrar {shownSkeleton ? "Lista" : "Skeleton"}
         </button>
       </main>
-      <footer className='w-full h-12 flex flex-col items-center justify-center overflow-hidden  bg-gray-100 dark:bg-zinc-700 dark:border-t-zinc-600'>
+      <footer className='w-full h-100 flex flex-col items-center justify-center overflow-hidden bg-gray-100 dark:bg-zinc-700 dark:border-t-zinc-600'>
         <p className='text-white'>
           Desenvolvido por{" "}
           <a href='https://github.com/diegodls' target='_blank'>
