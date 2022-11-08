@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { EmptyList } from "./components/EmptyList";
+import { Footer } from "./components/Footer";
 import { List } from "./components/LIst";
+import { SearchContactInput } from "./components/SearchContactInput";
 import { SkeletonList } from "./components/SkeletonList";
 import { RandomUserResponse, RandomUserResult } from "./utils/interfaces";
 export function App() {
@@ -48,21 +50,13 @@ export function App() {
 
   return (
     <div className='w-screen h-screen flex flex-col items-center overflow-auto bg-gray-100 dark:bg-zinc-900'>
-      <main className='w-full max-w-3xl h-full flex flex-col gap-2 items-center'>
-        <input
-          className='w-3/4 h-12 p-2 mt-1 relative border rounded text-gray-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-gray-50 disabled:opacity-75'
-          placeholder='Localizar contato...'
-          aria-label='Localizar contato'
-          type='search'
-          disabled={personList.length <= 0}
-          value={personSearch}
-          onChange={(
-            event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-          ) => {
-            setPersonSearch(event.target.value);
-          }}
+      <main className='w-full max-w-4xl h-full flex flex-col gap-2 items-center overflow-hidden'>
+        <SearchContactInput
+          personList={personList}
+          personSearch={personSearch}
+          setPersonSearch={setPersonSearch}
         />
-        <div className='w-3/4 h-full min-h-[350px] rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl overflow-auto'>
+        <div className='w-full h-full min-h-[350px] rounded-lg bg-gray-50 dark:bg-zinc-800 drop-shadow-2xl overflow-auto'>
           {personList && personList.length > 0 ? (
             shownSkeleton ? (
               <SkeletonList />
@@ -89,18 +83,8 @@ export function App() {
         >
           Mostrar {shownSkeleton ? "Lista" : "Skeleton"}
         </button>
-        <footer className='w-full h-16 flex flex-col items-center justify-center overflow-hidden bg-gray-100 dark:bg-zinc-700 dark:border-t-zinc-600'>
-          <p className='text-white'>
-            Desenvolvido por{" "}
-            <a href='https://github.com/diegodls' target='_blank'>
-              <strong className='text-green-500 transition-all hover:text-green-300'>
-                Diego
-              </strong>
-            </a>
-          </p>
-          <p className='text-white'>Para fins de estudos 😉</p>
-        </footer>
       </main>
+      <Footer />
     </div>
   );
 }
