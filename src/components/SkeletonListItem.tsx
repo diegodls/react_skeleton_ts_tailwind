@@ -1,4 +1,4 @@
-import { calcOpacity } from "../utils/functions/calcOpacity";
+import { calcDynamicOpacity } from "../utils/functions/calcDynamicOpacity";
 
 interface SkeletonListItemProps {
   itemIndex: number;
@@ -9,10 +9,10 @@ export function SkeletonListItem({
   itemIndex,
   arrLength,
 }: SkeletonListItemProps) {
+  const dynamicOpacity = calcDynamicOpacity(itemIndex, arrLength);
+
   return (
-    <li
-      className={`w-full h-24 opacity-[${calcOpacity(itemIndex, arrLength)}]`}
-    >
+    <li className={`w-full h-24`} style={{ opacity: `${dynamicOpacity}` }}>
       <div
         className={`w-full h-full flex flex-row items-center rounded-lg border bg-gray-100 dark:bg-zinc-700 dark:border-zinc-600 overflow-hidden `}
       >
